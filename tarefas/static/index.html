@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Minhas tarefas</h1>
+    <button type="button" id="desfazer" disabled>Desfazer exclusão (0)</button>
+  </header>
+
+  <main>
+    <section class="painel" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Nova tarefa</h2>
+      <form id="form">
+        <label>Título
+          <input id="titulo" maxlength="80" required>
+        </label>
+        <label>Descrição
+          <textarea id="descricao" rows="2" maxlength="300"></textarea>
+        </label>
+        <div class="linha">
+          <label>Prioridade
+            <select id="prioridade">
+              <option value="baixa">Baixa</option>
+              <option value="media" selected>Média</option>
+              <option value="alta">Alta</option>
+            </select>
+          </label>
+          <label>Categoria
+            <select id="categoria" required></select>
+          </label>
+        </div>
+        <div class="linha">
+          <button type="submit" id="salvar">Adicionar tarefa</button>
+          <button type="button" id="cancelar" class="secundario" hidden>Cancelar edição</button>
+        </div>
+        <p id="aviso" role="status"></p>
+      </form>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-categorias">
+      <h2 id="titulo-categorias">Categorias</h2>
+
+      <div class="bloco-lista-categorias">
+        <h3>Categorias cadastradas</h3>
+        <ul id="lista-categorias" class="lista-categorias"></ul>
+      </div>
+
+      <div class="bloco-cadastro-categoria">
+        <h3>Adicionar categoria</h3>
+        <form id="form-categoria">
+          <label>Nome da categoria
+            <input id="nome-categoria" maxlength="40" required placeholder="Ex.: Faculdade">
+          </label>
+          <button type="submit" id="salvar-categoria">Adicionar categoria</button>
+          <p id="aviso-categoria" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-lista">
+      <div class="cabecalho-lista">
+        <h2 id="titulo-lista">Lista</h2>
+        <input id="busca" type="search" placeholder="Buscar pelo título" aria-label="Buscar pelo título">
+      </div>
+      <div class="rolagem">
+        <table>
+          <thead>
+            <tr><th>Feita</th><th>Tarefa</th><th>Categoria</th><th>Prioridade</th><th>Ações</th></tr>
+          </thead>
+          <tbody id="tabela"></tbody>
+        </table>
+      </div>
+      <p id="vazio" hidden>Nenhuma tarefa encontrada. Preencha o formulário para adicionar a primeira.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

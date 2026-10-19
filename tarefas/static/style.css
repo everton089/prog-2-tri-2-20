@@ -1,0 +1,52 @@
+:root {
+  --fundo: #e9eef1; --painel: #ffffff; --tinta: #16262e; --suave: #5b6c75;
+  --linha: #d3dde2; --acento: #0e6b63; --alerta: #b23a2e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fundo); color: var(--tinta);
+       font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.topo { display: flex; justify-content: space-between; align-items: center;
+        gap: 1rem; flex-wrap: wrap; padding: 1.5rem clamp(1rem, 4vw, 3rem); }
+h1 { margin: 0; font-size: 1.9rem; letter-spacing: -0.02em; }
+h2 { margin: 0 0 1rem; font-size: 1.15rem; }
+main { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 1.25rem;
+       padding: 0 clamp(1rem, 4vw, 3rem) 3rem; align-items: start; }
+.painel { background: var(--painel); border: 1px solid var(--linha);
+          border-radius: 8px; padding: 1.25rem; }
+form { display: flex; flex-direction: column; gap: 0.9rem; }
+.linha { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.linha > label { flex: 1 1 120px; }
+label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.9rem; color: var(--suave); }
+input, select, textarea { font: inherit; color: var(--tinta); padding: 0.55rem 0.65rem;
+                          border: 1px solid var(--linha); border-radius: 6px; background: #fff; }
+textarea { resize: vertical; }
+button { font: inherit; cursor: pointer; padding: 0.55rem 1rem; border-radius: 6px;
+         border: 1px solid var(--acento); background: var(--acento); color: #fff; }
+button.secundario, .acoes button { background: transparent; color: var(--acento); }
+button.perigo { color: var(--alerta); border-color: var(--alerta); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+:focus-visible { outline: 3px solid #f0b429; outline-offset: 2px; }
+#aviso { margin: 0; min-height: 1.4em; color: var(--alerta); font-size: 0.9rem; }
+#aviso.ok { color: var(--acento); }
+.cabecalho-lista { display: flex; justify-content: space-between; align-items: center;
+                   gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.cabecalho-lista h2 { margin: 0; }
+.cabecalho-lista input { flex: 1 1 200px; max-width: 280px; }
+.rolagem { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--linha); vertical-align: top; }
+th { font-size: 0.85rem; color: var(--suave); font-weight: 600; }
+td small { display: block; color: var(--suave); }
+tr.feita .titulo-tarefa { text-decoration: line-through; color: var(--suave); }
+.prioridade-alta { color: var(--alerta); font-weight: 600; }
+.acoes { display: flex; gap: 0.4rem; white-space: nowrap; }
+.acoes button { padding: 0.3rem 0.65rem; font-size: 0.85rem; }
+@media (max-width: 800px) { main { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: no-preference) { button { transition: opacity .15s; } }
+
+.bloco-lista-categorias { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--linha); }
+.bloco-lista-categorias h3, .bloco-cadastro-categoria h3 { margin: 0 0 0.65rem; font-size: 1rem; }
+.lista-categorias { margin: 0; padding-left: 1.25rem; }
+.lista-categorias li { padding: 0.2rem 0; }
+#aviso-categoria { margin: 0; min-height: 1.4em; color: var(--alerta); font-size: 0.9rem; }
+#aviso-categoria.ok { color: var(--acento); }

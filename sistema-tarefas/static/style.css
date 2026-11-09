@@ -1,0 +1,442 @@
+
+
+:root {
+    --fundo: #eef2f5;
+    --painel: #ffffff;
+    --tinta: #1e293b;
+    --suave: #64748b;
+    --linha: #e2e8f0;
+    --acento: #0e6b63;
+    --acento-hover: #09564f;
+    --alerta: #b23a2e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--tinta);
+
+    font: 15px/1.5 system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+}
+
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    padding: 1.5rem clamp(1rem, 4vw, 3rem);
+
+    background: var(--painel);
+    border-bottom: 1px solid var(--linha);
+}
+
+.topo h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+}
+
+.topo p {
+    margin: 0.25rem 0 0;
+    color: var(--suave);
+    font-size: 0.9rem;
+}
+
+
+.container {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(300px, 0.85fr);
+
+    gap: 1.25rem;
+
+    padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem;
+
+    align-items: start;
+}
+
+.coluna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    min-width: 0;
+}
+
+
+
+.painel {
+    background: var(--painel);
+
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+
+    padding: 1.4rem;
+
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.painel h2 {
+    margin: 0 0 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 650;
+}
+
+.subtitulo {
+    margin: 0 0 1.2rem;
+    color: var(--suave);
+    font-size: 0.85rem;
+}
+
+
+.painel-lista {
+    min-height: 350px;
+}
+
+.cabecalho-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    margin-bottom: 1.25rem;
+}
+
+.cabecalho-lista h2 {
+    margin: 0;
+}
+
+.cabecalho-lista .subtitulo {
+    margin: 0.25rem 0 0;
+}
+
+.cabecalho-lista input {
+    flex: 1 1 180px;
+    max-width: 260px;
+}
+
+
+
+
+.rolagem {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th,
+td {
+    text-align: left;
+
+    padding: 0.8rem 0.65rem;
+
+    border-bottom: 1px solid var(--linha);
+
+    vertical-align: middle;
+}
+
+th {
+    color: var(--suave);
+    font-size: 0.8rem;
+    font-weight: 650;
+
+    background: #f8fafc;
+}
+
+td {
+    font-size: 0.88rem;
+}
+
+tr:hover td {
+    background: #f8fafc;
+}
+
+td small {
+    display: block;
+    color: var(--suave);
+}
+
+tr.feita .titulo-tarefa {
+    text-decoration: line-through;
+    color: var(--suave);
+}
+
+.prioridade-alta {
+    color: var(--alerta);
+    font-weight: 650;
+}
+
+#vazio {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--suave);
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    color: var(--suave);
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    font: inherit;
+    color: var(--tinta);
+
+    padding: 0.7rem 0.75rem;
+
+    border: 1px solid var(--linha);
+    border-radius: 7px;
+
+    background: #fff;
+
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--acento);
+    outline: none;
+
+    box-shadow: 0 0 0 3px rgba(14, 107, 99, 0.10);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+.linha {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.linha > label {
+    flex: 1;
+    min-width: 0;
+}
+
+
+
+button {
+    font: inherit;
+    font-weight: 550;
+
+    cursor: pointer;
+
+    padding: 0.65rem 1rem;
+
+    border-radius: 7px;
+    border: 1px solid var(--acento);
+
+    background: var(--acento);
+    color: white;
+
+    transition: background 0.15s, opacity 0.15s;
+}
+
+button:hover:not(:disabled) {
+    background: var(--acento-hover);
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+button.secundario,
+.acoes button {
+    background: transparent;
+    color: var(--acento);
+}
+
+button.secundario:hover:not(:disabled),
+.acoes button:hover:not(:disabled) {
+    background: #e8f3f1;
+}
+
+button.perigo {
+    color: var(--alerta);
+    border-color: var(--alerta);
+}
+
+.botoes-form {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.botoes-form button {
+    flex: 1;
+}
+
+.acoes {
+    display: flex;
+    gap: 0.4rem;
+    white-space: nowrap;
+}
+
+.acoes button {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.82rem;
+}
+
+:focus-visible {
+    outline: 3px solid #f0b429;
+    outline-offset: 2px;
+}
+
+
+.painel-categorias h2 {
+    margin-bottom: 1.2rem;
+}
+
+.bloco-lista-categorias {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+
+    border-bottom: 1px solid var(--linha);
+}
+
+.bloco-lista-categorias h3,
+.bloco-cadastro-categoria h3 {
+    margin: 0 0 0.8rem;
+    font-size: 0.95rem;
+}
+
+.lista-categorias {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.lista-categorias li {
+    padding: 0.3rem 0;
+    color: var(--suave);
+    font-size: 0.9rem;
+}
+
+#salvar-categoria {
+    width: 100%;
+}
+
+
+#aviso,
+#aviso-categoria {
+    margin: 0;
+    min-height: 1.3rem;
+
+    color: var(--alerta);
+    font-size: 0.85rem;
+}
+
+#aviso.ok,
+#aviso-categoria.ok {
+    color: var(--acento);
+}
+
+
+@media (max-width: 950px) {
+
+    .container {
+        grid-template-columns: minmax(0, 1.3fr) minmax(270px, 1fr);
+    }
+
+    .painel {
+        padding: 1rem;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .coluna-lateral {
+        order: 2;
+    }
+
+    .painel-lista {
+        order: 1;
+    }
+
+    .cabecalho-lista {
+        align-items: stretch;
+    }
+
+    .cabecalho-lista input {
+        max-width: none;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .topo h1 {
+        font-size: 1.5rem;
+    }
+
+    .linha {
+        flex-direction: column;
+    }
+
+    .botoes-form {
+        flex-direction: column;
+    }
+
+    .painel {
+        padding: 0.9rem;
+    }
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+
+}
